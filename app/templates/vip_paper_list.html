@@ -1,0 +1,146 @@
+{% extends 'vip_layout.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <div style="margin-bottom: 10px">
+            <a class="btn btn-success" href="/user/paper/add/">
+                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                新建文献
+            </a>
+            <div style="float: right;width:300px">
+                <form method="get">
+                    <div class="input-group">
+                        <input type="text" name="q" class="form-control" placeholder="搜索...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-info" type="submit">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                搜索一下
+                            </button>
+                        </span>
+                    </div><!-- /input-group -->
+                </form>
+            </div>
+
+        </div>
+
+
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                文献列表
+            </div>
+
+            <!-- Table -->
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>题名</th>
+                    <th>作者</th>
+                    <th>来源</th>
+                    <th>发表时间</th>
+                    <th>上传者</th>
+                    <th>文献</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for obj in queryset %}
+                    <tr>
+
+                        <th>{{ obj.id }}</th>
+                        <td>{{ obj.title }}</td>
+                        <td>{{ obj.author }}</td>
+                        <td>{{ obj.source }}</td>
+                        <td>{{ obj.create_time|date:"Y-m-d" }}</td>
+                        <td>{{ obj.uploader }}</td>
+                        <td>
+                            <a href="/{{ obj.filepath }}" target="_blank">查看文献</a>
+                        </td>
+                        <td>
+                            {% if obj.id in storeset %}
+
+                                <button paperid="{{ obj.id }}" id="btn-store-{{ obj.id }}"
+                                        class="btn btn-warning btn-xs btn-store">
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    收藏
+                                </button>
+
+                            {% else %}
+
+                                <button paperid="{{ obj.id }}" id="btn-store-{{ obj.id }}"
+                                        class="btn btn-default btn-xs btn-store">
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                    收藏
+                                </button>
+
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <ul class="pagination">
+            {{ page_string }}
+        </ul>
+
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript">
+
+        $(function () {
+            bindBtnStoreEvent();
+        })
+
+        function bindBtnStoreEvent() {
+            $(".btn-store").click(function () {
+
+                if ($(this).hasClass("btn-warning")) {
+
+                    $(this).attr("class", "btn btn-default btn-xs btn-store");
+                    $(this).children().attr("class", "glyphicon glyphicon-star-empty");
+                    paperid = $(this).attr("paperid");
+                    $.ajax({
+                        url: '/paper/store/delete/',
+                        type: "post",
+                        data: {
+                            paperid: paperid,
+                        },
+                        dataType: "JSON",
+                        success: function (res) {
+                            if (res.status) {
+                                alert("取消收藏成功");
+                                {# location.reload();#}
+                            }
+                        }
+                    })
+                } else {
+                    $(this).attr("class", "btn btn-warning btn-xs btn-store");
+                    $(this).children().attr("class", "glyphicon glyphicon-star");
+                    paperid = $(this).attr("paperid");
+                    $.ajax({
+                        url: '/paper/store/add/',
+                        type: "post",
+                        data: {
+                            paperid: paperid,
+                        },
+                        dataType: "JSON",
+                        success: function (res) {
+                            if (res.status) {
+                                alert("收藏成功");
+                                {# location.reload();#}
+                            }
+                        }
+                    })
+                }
+            })
+        }
+
+    </script>
+{% endblock %}

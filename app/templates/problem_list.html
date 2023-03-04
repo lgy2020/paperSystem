@@ -1,0 +1,288 @@
+{% extends 'user_layout.html' %}
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                问题列表
+            </div>
+
+{#            <form name="a" id="a" action="#" method="post">#}
+{#                {% csrf_token %}#}
+                <div style="margin-top: 30px;margin-bottom: 10px;margin-left: 20px">
+                    1.生铁又硬又脆是因为它含碳
+                </div>
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p1" value="1">A.多
+                    </label>
+                </div>
+
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p1" value="2">B.少
+                    </label>
+                </div>
+
+                <hr>
+                <div style="margin-top: 20px;margin-bottom: 10px;margin-left: 20px">
+                    2. "七月流火”指天气
+                </div>
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p2" value="1">A.转凉
+                    </label>
+                </div>
+
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p2" value="2">B.变热
+                    </label>
+                </div>
+
+
+                <hr>
+                <div style="margin-top: 20px;margin-bottom: 10px;margin-left: 20px">
+                    3. 眉毛的生长周期有多久？
+                </div>
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p3" value="1">A.一个月
+                    </label>
+                </div>
+
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p3" value="2">B.二个月
+                    </label>
+                </div>
+
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p3" value="3">C.三个月
+                    </label>
+                </div>
+
+
+                <hr>
+                <div style="margin-top: 20px;margin-bottom: 10px;margin-left: 20px">
+                    4. 人体中最先衰老的器官是：
+                </div>
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p4" value="1">A.心脏
+                    </label>
+                </div>
+
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p4" value="2"> B.胃
+                    </label>
+                </div>
+
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p4" value="3"> C.皮肤
+                    </label>
+                </div>
+
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p4" value="4">D.胸腺
+                    </label>
+                </div>
+
+                <hr>
+                <div style="margin-top: 20px;margin-bottom: 10px;margin-left: 20px">
+                    5. "冬天到了，春天还会远吗”语出：
+                </div>
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p5" value="1">A.玛格丽特
+                    </label>
+                </div>
+
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p5" value="2"> B.毛姆
+                    </label>
+                </div>
+
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p5" value="3">C.雪莱
+                    </label>
+                </div>
+
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p5" value="4">D. 安德烈
+                    </label>
+                </div>
+
+                <hr>
+                <div style="margin-top: 20px;margin-bottom: 10px;margin-left: 20px">
+                    6. 学习绘画时，由浅入深，循序渐进的学习次序应是：
+                </div>
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p6" value="1"> A.人物、静物、风景
+                    </label>
+                </div>
+
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p6" value="2">B.静物、风景、人物
+                    </label>
+                </div>
+
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p6" value="3">C.风景、静物、人物
+                    </label>
+                </div>
+
+
+                <hr>
+                <div style="margin-top: 20px;margin-bottom: 10px;margin-left: 20px">
+                    7. 在狗的眼睛里世界是什么颜色的？
+                </div>
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p7" value="1">A.只有黑白灰色
+                    </label>
+                </div>
+
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p7" value="2">B.只有红黄色
+                    </label>
+                </div>
+
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p7" value="3">C.缤纷多彩的颜色
+                    </label>
+                </div>
+
+
+                <hr>
+                <div style="margin-top: 20px;margin-bottom: 10px;margin-left: 20px">
+                    8. 大气中起吸收紫外线、保护地球生命作用的是哪种成分？
+                </div>
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p8" value="1">A.氮气
+                    </label>
+                </div>
+
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p8" value="2">B.二氧化碳
+                    </label>
+                </div>
+
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p8" value="3">C.氧气
+                    </label>
+                </div>
+
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p8" value="4">D.臭氧
+                    </label>
+                </div>
+
+                <hr>
+                <div style="margin-top: 20px;margin-bottom: 10px;margin-left: 20px">
+                    9. "花儿”是属于哪一个少数民族的民歌？
+                </div>
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p9" value="1">A.土家族
+                    </label>
+                </div>
+
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p9" value="2">B.维吾尔族
+                    </label>
+                </div>
+
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p9" value="3">C.回族
+                    </label>
+                </div>
+
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p9" value="4">D.傣族
+                    </label>
+                </div>
+
+                <hr>
+                <div style="margin-top: 20px;margin-bottom: 10px;margin-left: 20px">
+                    10.鳄鱼是哺乳动物。
+                </div>
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p10" value="1">A.对
+                    </label>
+                </div>
+
+                <div class="radio" style="margin-left: 20px; margin-top: 10px;">
+                    <label>
+                        <input type="radio" name="p10" value="2">B.不对
+                    </label>
+                </div>
+
+                <button style="margin: 20px" class="btn btn-warning" onclick="click1()">
+                    提交
+                </button>
+
+
+{#            </form>#}
+
+
+        </div>
+
+
+    </div>
+
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript">
+        function click1()
+        {
+            var res = "";
+            for (var i = 1; i <= 10; i++) {
+                var s = "p" + i;
+                var radio = document.getElementsByName(s);
+                var selectvalue = 0;   //  selectvalue为radio中选中的值
+                for (var j = 0; j < radio.length; j++) {
+                    if (radio[j].checked === true) {
+                        selectvalue = radio[j].value;
+                        break;
+                    }
+                 }
+                res += selectvalue;
+            }
+            if(res === "1124321432")
+            {
+                alert("问题回答正确，升级成功！");
+                window.location.href="/vip/paper/list/";
+            }
+            else
+            {
+                alert("部分问题回答错误，请重新选择答案！");
+            }
+        }
+    </script>
+{% endblock %}
